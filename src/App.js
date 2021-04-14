@@ -12,18 +12,18 @@ import { useState } from "react";
 
 const App = ()=> {
 
-  const [isLogedin, setIsLogedin] = useState(true)
+  const [isLogedin, setIsLogedin] = useState(false)
 
   return (
     <>
     <MyAppBar isLogedin={isLogedin} />
     <Router>
       <Switch>
-        <Route path='/' exact>
-          <Home/>
-        </Route>
         <Route path='/profile'>
           <Profile/>
+        </Route>
+        <Route path='/'>
+          <Home/>
         </Route>
       </Switch>
     </Router>

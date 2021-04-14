@@ -1,6 +1,13 @@
 import React from 'react'
-import { Container, makeStyles, Typography } from '@material-ui/core'
-import { grey } from '@material-ui/core/colors';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useHistory,
+  } from "react-router-dom";
+import { Button, ButtonGroup, Container, makeStyles, Typography } from '@material-ui/core'
+import { blueGrey, grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme)=>({
     root: {
@@ -8,11 +15,42 @@ const useStyles = makeStyles((theme)=>({
         backgroundColor:  grey[100]
     },
     heroSection:{
-        padding: theme.spacing(10, 10)
+        display: 'flex',
+        flexDirection: "column",
+        padding: theme.spacing(10, 10, 15, 10),
+        [theme.breakpoints.up('xs')]: {
+            alignItems: "center"
+        },
+        [theme.breakpoints.up('sm')]: {
+            alignItems: "start"
+        },
+        [theme.breakpoints.up('md')]: {
+            alignItems: 'start'
+        },
+        
+    },
+    mainSection:{
+        minHeight: theme.spacing(50),
+
+    },
+    buttonContainer:{
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    contents:{
+
+    },
+    checkMark:{
+        display: 'flex',
+        justifyContent:"center",
+        padding: theme.spacing(0, 0, 6, 0)
+
     }
 }))
+
 const Home = ()=> {
     const classes = useStyles();
+    const history = useHistory();
     return (
         <div className={classes.root}>
             <Container className={classes.heroSection}>
@@ -23,6 +61,38 @@ const Home = ()=> {
                     Today is 2 September 2021 | 1st Ramadan
                 </Typography>
             </Container>
+            <Container>
+                <div className={classes.checkMark}>
+                    <Typography variant="h5">
+                        <Link style={{textDecoration: 'none'}} to="/profile"> Create Ramadan checklist now</Link>
+                    </Typography>
+                </div>
+            </Container>
+            <Container className={classes.mainSection}>
+                <div className={classes.buttonContainer}>
+                    <ButtonGroup>
+                        <Button onClick={()=> history.push('/leader-board')} > Leader Board </Button>
+                        <Button onClick={()=> history.push('/hadith')} > Hadith </Button>
+                        <Button onClick={()=> history.push('/iftar-time')}> Iftar Time </Button>
+                    </ButtonGroup>
+                </div>
+                
+                <div className={classes.contents}>
+                    <Switch>
+                        <Route path ='/leader-board'>
+                            <h1>Leader Board</h1>
+                        </Route>
+                        <Route path ='/hadith'>
+                            <h1>Hadith</h1>
+                        </Route>
+                        <Route path ='/iftar-time'>
+                            <h1>Iftar Time</h1>
+                        </Route>
+                    </Switch>
+                </div>
+
+            </Container>
+
         </div>
     )
 }
