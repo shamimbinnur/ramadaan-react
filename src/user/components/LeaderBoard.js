@@ -9,10 +9,13 @@ import { Card, CardContent, CardHeader, Typography, Grid, Container, makeStyles,
     TableCell,
 } from '@material-ui/core'
 import { WrapText } from '@material-ui/icons';
-import { blue } from '@material-ui/core/colors';
+import { blue, grey } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme)=>({
     root:{
 
+    },
+    tableHead:{
+        backgroundColor: grey[500],
     }
    
 }))
@@ -25,8 +28,7 @@ const LeaderBoard = ()=> {
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
-                            <TableRow>
- 
+                            <TableRow className={classes.tableHead}>
                                 <TableCell align="left"> <Typography> Serial </Typography> </TableCell>
                                 <TableCell align="left"> <Typography> Name </Typography> </TableCell>
                                 <TableCell align="left"> <Typography> City </Typography> </TableCell>
@@ -35,9 +37,9 @@ const LeaderBoard = ()=> {
                         </TableHead>
                         <TableBody>
                             {
-                                arr.map(item =>(
+                                arr.map((item, i) =>(
                                     <TableRow>
-                                    <TableCell align="left"> <Typography> 01 </Typography> </TableCell>
+                                    <TableCell align="left"> <Typography> {i+1} </Typography> </TableCell>
                                     <TableCell align="left"> <Typography> Shamim Bin Nur </Typography> </TableCell>
                                     <TableCell align="left"> <Typography> Sirajganj </Typography> </TableCell>
                                     <TableCell align="left"> <Typography> 405 </Typography> </TableCell>

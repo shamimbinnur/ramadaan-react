@@ -75,8 +75,8 @@ const Home = ()=> {
                 <div className={classes.buttonContainer}>
                     <ButtonGroup>
                         <Button size="small" onClick={()=> history.push('/leader-board')} > Leader Board </Button>
-                        <Button size="small" onClick={()=> history.push('/hadith')} > Hadith </Button>
                         <Button size="small" onClick={()=> history.push('/iftar-time')}> Iftar Time </Button>
+                        <Button size="small" onClick={()=> history.push('/hadith')} > Hadith </Button>
                     </ButtonGroup>
                 </div>
                 
