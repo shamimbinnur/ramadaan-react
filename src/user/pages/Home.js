@@ -15,7 +15,6 @@ import IftarTime from '../components/IftarTime'
 const useStyles = makeStyles((theme)=>({
     root: {
         minHeight: theme.spacing(50),
-        backgroundColor:  grey[100]
     },
     heroSection:{
         display: 'flex',
@@ -75,9 +74,9 @@ const Home = ()=> {
             <Container className={classes.mainSection}>
                 <div className={classes.buttonContainer}>
                     <ButtonGroup>
-                        <Button onClick={()=> history.push('/leader-board')} > Leader Board </Button>
-                        <Button onClick={()=> history.push('/hadith')} > Hadith </Button>
-                        <Button onClick={()=> history.push('/iftar-time')}> Iftar Time </Button>
+                        <Button size="small" onClick={()=> history.push('/leader-board')} > Leader Board </Button>
+                        <Button size="small" onClick={()=> history.push('/hadith')} > Hadith </Button>
+                        <Button size="small" onClick={()=> history.push('/iftar-time')}> Iftar Time </Button>
                     </ButtonGroup>
                 </div>
                 
