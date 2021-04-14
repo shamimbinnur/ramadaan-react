@@ -8,6 +8,9 @@ import {
   } from "react-router-dom";
 import { Button, ButtonGroup, Container, makeStyles, Typography } from '@material-ui/core'
 import { blueGrey, grey } from '@material-ui/core/colors';
+import Hadith from '../components/Hadith'
+import LeaderBoard from '../components/LeaderBoard'
+import IftarTime from '../components/IftarTime'
 
 const useStyles = makeStyles((theme)=>({
     root: {
@@ -35,7 +38,8 @@ const useStyles = makeStyles((theme)=>({
     },
     buttonContainer:{
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        padding: theme.spacing(0,0,5,0),
     },
     contents:{
 
@@ -63,8 +67,8 @@ const Home = ()=> {
             </Container>
             <Container>
                 <div className={classes.checkMark}>
-                    <Typography variant="h5">
-                        <Link style={{textDecoration: 'none'}} to="/profile"> Create Ramadan checklist now</Link>
+                    <Typography variant="subtitle1">
+                        <Link style={{textDecoration: 'none'}} to="/profile"> Try Ramadan Checklist now</Link>
                     </Typography>
                 </div>
             </Container>
@@ -80,13 +84,13 @@ const Home = ()=> {
                 <div className={classes.contents}>
                     <Switch>
                         <Route path ='/leader-board'>
-                            <h1>Leader Board</h1>
+                            <LeaderBoard/>
                         </Route>
                         <Route path ='/hadith'>
-                            <h1>Hadith</h1>
+                            <Hadith/>
                         </Route>
                         <Route path ='/iftar-time'>
-                            <h1>Iftar Time</h1>
+                            <IftarTime/>
                         </Route>
                     </Switch>
                 </div>

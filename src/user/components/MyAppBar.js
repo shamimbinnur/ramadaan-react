@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-const MyAppBar=({isLogedin}) => {
+const MyAppBar=({isLogedin, username}) => {
     const classes = useStyles();
     return (
         <div>
@@ -29,12 +29,12 @@ const MyAppBar=({isLogedin}) => {
                     <Typography  className={classes.title}>
                         Ramadaan Checklist
 
-                    </Typography>
+                    </Typography >
                     {
                         isLogedin &&
                         <>
-                        <Typography>Logout</Typography>
-                        <IconButton color="inherit" aria-label="menu">
+                        <Typography >{username}</Typography>
+                        <IconButton >
                             <ExitToAppOutlined />
                         </IconButton>
                         </>
