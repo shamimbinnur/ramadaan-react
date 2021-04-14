@@ -24,7 +24,7 @@ const MyAppBar=({isLogedin}) => {
     const classes = useStyles();
     return (
         <div>
-            <AppBar className={classes.appbar} elevation={0}>
+            <AppBar position='sticky' className={classes.appbar} elevation={0}>
                 <Toolbar className={classes.toolbar} >
                     <Typography  className={classes.title}>
                         Ramadaan Checklist
