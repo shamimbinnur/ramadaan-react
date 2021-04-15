@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, Toolbar, Typography, IconButton, makeStyles } from '@material-ui/core';
-import { ExitToAppOutlined, PlayCircleFilledWhite } from '@material-ui/icons'
+import { ExitToAppOutlined, LockOpenOutlined } from '@material-ui/icons'
 import { blue } from '@material-ui/core/colors';
 import { Link } from 'react-router-dom'
 
@@ -37,7 +37,7 @@ const MyAppBar=({isLogedin, username}) => {
                         <Link className={classes.link}  to='/'> Ramadaan Checklist </Link>
                     </Typography >
                     {
-                        isLogedin &&
+                        isLogedin ?
                         <>
                         <Typography >
                             <Link className={classes.link} to ='/profile'> {username} </Link>
@@ -45,7 +45,16 @@ const MyAppBar=({isLogedin, username}) => {
                         <IconButton className={classes.icon}>
                             <ExitToAppOutlined />
                         </IconButton>
+                        </> :
+                        <>
+                        <Typography >
+                            <Link className={classes.link} to ='/login'> Login </Link>
+                        </Typography>
+                        <IconButton className={classes.icon}>
+                            <LockOpenOutlined />
+                        </IconButton>
                         </>
+                        
                     }
                 </Toolbar>
             </AppBar>

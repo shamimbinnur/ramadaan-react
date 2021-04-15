@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-const Home = ()=> {
+const Home = ({ isLogedin })=> {
     const classes = useStyles();
     const history = useHistory();
     return (
@@ -67,7 +67,7 @@ const Home = ()=> {
             <Container>
                 <div className={classes.checkMark}>
                     <Typography variant="subtitle1">
-                        <Link style={{textDecoration: 'none'}} to="/profile"> Try Ramadan Checklist now</Link>
+                        <Link style={{textDecoration: 'none'}} to={ isLogedin ? '/profile' : '/login'} > Try Ramadan Checklist now</Link>
                     </Typography>
                 </div>
             </Container>

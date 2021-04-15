@@ -8,11 +8,14 @@ import Home from './user/pages/Home'
 import Profile from './user/pages/Profile'
 import MyAppBar from './user/components/MyAppBar';
 import { useState } from "react";
+import Login from "./user/pages/Login";
+import SignUp from './user/pages/SignUp'
+
 
 
 const App = ()=> {
 
-  const [isLogedin, setIsLogedin] = useState(true)
+  const [isLogedin, setIsLogedin] = useState(false)
   const [username, setUsername] = useState('Abdur Rouf')
 
   return (
@@ -23,8 +26,14 @@ const App = ()=> {
         <Route path='/profile'>
           <Profile/>
         </Route>
+        <Route path='/login'>
+          <Login/>
+        </Route>
+        <Route path='/signup'>
+          <SignUp/>
+        </Route>
         <Route path='/'>
-          <Home/>
+          <Home isLogedin={ isLogedin} />
         </Route>
       </Switch>
     </Router>
